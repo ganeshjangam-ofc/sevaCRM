@@ -1,0 +1,162 @@
+{
+  "theme": "light",
+  "archetype": "Archetype 4 (Swiss & High-Contrast) + Modern Colorful Accents",
+  "design_philosophy": "Professional & minimal meets modern & colorful. A data-heavy CRM that does not feel like a spreadsheet. We use pure stark white/grey bases and 1px crisp borders to maintain maximum clarity and authority (Swiss style). We then inject strategic, highly saturated colors (Klein Blue, Emerald, Signal Red) purely as functional indicators and interactive triggers. We avoid muddy gradients and soft shadows, preferring pure flat surfaces and hard optical separation.",
+  "colors": {
+    "background": {
+      "default": "#FFFFFF",
+      "surface": "#F7F7F9",
+      "surface_hover": "#F0F0F4"
+    },
+    "text": {
+      "primary": "#121212",
+      "secondary": "#5E5E62",
+      "disabled": "#A1A1AA",
+      "inverse": "#FFFFFF"
+    },
+    "brand": {
+      "primary": "#002FA7",
+      "primary_hover": "#00227A",
+      "secondary": "#FF2A2A"
+    },
+    "functional": {
+      "success": "#00C96D",
+      "success_bg": "#E5F9F0",
+      "warning": "#FFC000",
+      "warning_bg": "#FFF9E5",
+      "error": "#FF2A2A",
+      "error_bg": "#FFEAEA",
+      "info": "#002FA7",
+      "info_bg": "#E5EAF6"
+    },
+    "border": {
+      "default": "#E4E4E7",
+      "focus": "#002FA7"
+    }
+  },
+  "typography": {
+    "heading_font": "Outfit",
+    "body_font": "Figtree",
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl tracking-tight font-bold",
+      "h2": "text-2xl sm:text-3xl tracking-tight font-semibold",
+      "h3": "text-xl sm:text-2xl tracking-tight font-medium",
+      "h4": "text-lg sm:text-xl font-medium",
+      "body": "text-base leading-relaxed",
+      "body_small": "text-sm leading-relaxed",
+      "overline": "text-xs tracking-[0.2em] uppercase font-bold text-[#5E5E62]"
+    },
+    "rules": [
+      "No Inter for headings. Use Outfit.",
+      "Headlines > 32px MUST use tracking-tight.",
+      "Never center-align paragraphs or dense content; keep it left-aligned for scannability."
+    ]
+  },
+  "spacing_and_layout": {
+    "grid_system": "MODE B: THE 'CONTROL ROOM' GRID",
+    "rules": [
+      "Base Grid for dashboard: grid-cols-1 md:grid-cols-3 lg:grid-cols-4",
+      "Gap Strategy: Tight (gap-4 or gap-6) for data correlation.",
+      "Every pixel utilized: use h-full on children to ensure stretch.",
+      "Containers with borders must have internal padding (p-6) to prevent text collision."
+    ]
+  },
+  "surface_strategies": {
+    "dashboard_cards": {
+      "style": "GRID BORDERS / FLAT",
+      "rules": [
+        "Flat background (#FFFFFF), 1px subtle border (#E4E4E7), NO soft shadows.",
+        "Hover state: Slight lift (-translate-y-1), subtle hard shadow, border color darkens.",
+        "Radius: max 8px (rounded-lg)."
+      ]
+    },
+    "navigation_sidebar": {
+      "style": "FLAT SOLID",
+      "rules": [
+        "Collapsible left-sidebar architecture.",
+        "Background: #F7F7F9, right border 1px solid #E4E4E7.",
+        "Active link: #E5EAF6 background with #002FA7 text and bold font weight."
+      ]
+    },
+    "modals_dialogs": {
+      "style": "GLASSMORPHISM (Optical Clarity)",
+      "rules": [
+        "Backdrop: bg-black/40 backdrop-blur-md.",
+        "Modal Surface: bg-white with 1px border-border/40, shadow-2xl.",
+        "Must have crisp edges and clear close (X) buttons."
+      ]
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#002FA7] text-white hover:bg-[#00227A] rounded-lg px-4 py-2 font-medium transition-colors",
+      "secondary": "bg-[#F7F7F9] text-[#121212] border border-[#E4E4E7] hover:bg-[#E4E4E7] rounded-lg px-4 py-2 font-medium transition-colors",
+      "ghost": "text-[#5E5E62] hover:text-[#121212] hover:bg-[#F0F0F4] rounded-lg px-4 py-2 transition-colors"
+    },
+    "inputs": {
+      "default": "border border-[#E4E4E7] rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#002FA7]/20 focus:border-[#002FA7] transition-all"
+    },
+    "tables": {
+      "style": "Clean, dense. Header rows in #F7F7F9 with uppercase overline text. Data rows in white with 1px bottom border. Striped rows avoided; rely on whitespace."
+    },
+    "badges": {
+      "style": "Soft background + high contrast text. E.g., success badge: bg-[#E5F9F0] text-[#00C96D] px-2.5 py-0.5 rounded-full text-xs font-bold."
+    }
+  },
+  "motion": {
+    "rules": [
+      "Hover states for all interactive elements (buttons, table rows, links).",
+      "Use transition-transform 0.2s ease, opacity 0.2s ease.",
+      "No heavy parallax on admin dashboards. Micro-interactions only.",
+      "Staggered entrance for list items."
+    ]
+  },
+  "media": {
+    "rules": [
+      "Images MUST NOT exceed 80vh on mobile devices.",
+      "Never use placeholder URLs (like via.placeholder.com)."
+    ],
+    "image_urls": {
+      "login_background": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/36f464f9-c2ca-4207-8029-63878f1c59ee/images/3b5f9582dccf8a0269e5f026c6261d142fdfddacb5696c9244f85db73b211728.png",
+        "description": "Abstract frosted glass morphism background, soft pastel gradients with bright blue and emerald green accents. Use as the full-screen background for authentication/login pages."
+      },
+      "empty_state_graphic": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/36f464f9-c2ca-4207-8029-63878f1c59ee/images/9c8f4a18bb85b331ae13af86da6299ed3f18ab6ae681df91d0b36d4bc294b96d.png",
+        "description": "Minimalist 3D geometric shapes floating. Use in dashboard empty states (e.g., 'No recent inquiries', 'No tasks today')."
+      },
+      "sales_target_graphic": {
+        "url": "https://static.prod-images.emergentagent.com/jobs/36f464f9-c2ca-4207-8029-63878f1c59ee/images/55a223bb314bc6e2ba013182d2f426d537f68aafa3c635da040125d0e2e9d8e1.png",
+        "description": "3D isometric illustration of a target with an arrow. Use in the 'Quota/Sales Goal' widget or report pages."
+      },
+      "avatar_female": {
+        "url": "https://images.unsplash.com/photo-1758518727888-ffa196002e59?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBlcnNvbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3NjI3NDA2NXww&ixlib=rb-4.1.0&q=85",
+        "description": "A professional woman in a suit. Use for Admin or Sales Team avatar placeholder."
+      },
+      "avatar_male": {
+        "url": "https://images.pexels.com/photos/4687575/pexels-photo-4687575.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Confident businessman. Use for Customer Profile avatar placeholder."
+      },
+      "dashboard_office_lifestyle": {
+        "url": "https://images.unsplash.com/photo-1758874383918-d85ea841b4e3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxOTF8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBvZmZpY2UlMjB3b3Jrc3BhY2UlMjBjb2xvcmZ1bHxlbnwwfHx8fDE3NzYyNzQwNjZ8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Man relaxing at desk in colorful office. Use in 'Help Center' hero section or 'Onboarding' modal."
+      }
+    }
+  },
+  "icons_and_libraries": {
+    "icons": "lucide-react",
+    "charts": "recharts (Shadcn Chart components)",
+    "forms": "react-hook-form + zod",
+    "toast": "sonner"
+  },
+  "testing": {
+    "attributes": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case, role-based."
+  },
+  "instructions_to_main_agent": [
+    "Strictly adhere to the color palette. Do NOT introduce external grey hexes; use the specified background and border colors.",
+    "Do NOT use HTML inputs or selects. Use Shadcn components, but customize them with the borders and radii defined here.",
+    "Implement the 'Control Room' grid approach for the main dashboard (Grid with tight gaps, h-full cards).",
+    "Inject the defined media URLs for empty states, avatars, and login backgrounds to avoid a generic wireframe look.",
+    "Always use the Outfit font for headings and Figtree for body text. Use font weights exactly as described."
+  ]
+}
