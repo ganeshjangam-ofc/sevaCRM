@@ -1,34 +1,55 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* CRM Suite - Custom Styles */
+
+/* Status badges */
+.badge-new { background-color: #E5EAF6; color: #002FA7; }
+.badge-in-progress { background-color: #FFF9E5; color: #B8860B; }
+.badge-qualified { background-color: #E5F9F0; color: #00855A; }
+.badge-converted { background-color: #E5F9F0; color: #00C96D; }
+.badge-closed { background-color: #F7F7F9; color: #5E5E62; }
+.badge-open { background-color: #E5EAF6; color: #002FA7; }
+.badge-resolved { background-color: #E5F9F0; color: #00C96D; }
+.badge-pending { background-color: #FFF9E5; color: #B8860B; }
+.badge-completed { background-color: #E5F9F0; color: #00C96D; }
+.badge-overdue { background-color: #FFEAEA; color: #FF2A2A; }
+.badge-draft { background-color: #F7F7F9; color: #5E5E62; }
+.badge-sent { background-color: #E5EAF6; color: #002FA7; }
+.badge-accepted { background-color: #E5F9F0; color: #00C96D; }
+.badge-rejected { background-color: #FFEAEA; color: #FF2A2A; }
+.badge-expired { background-color: #F7F7F9; color: #A1A1AA; }
+
+.badge-low { background-color: #E5F9F0; color: #00855A; }
+.badge-medium { background-color: #FFF9E5; color: #B8860B; }
+.badge-high { background-color: #FFEAEA; color: #FF2A2A; }
+
+/* Stat card hover */
+.stat-card {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+    border-color: #002FA7;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Table row hover */
+.table-row-hover:hover {
+    background-color: #F7F7F9;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
+/* Stagger animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+/* Empty state */
+.empty-state {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    padding: 3rem;
+    text-align: center;
 }

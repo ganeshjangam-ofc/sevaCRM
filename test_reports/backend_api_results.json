@@ -1,0 +1,107 @@
+{
+  "summary": {
+    "total_tests": 16,
+    "passed_tests": 16,
+    "failed_tests": 0,
+    "success_rate": 100.0,
+    "timestamp": "2026-04-15T17:54:00.809708"
+  },
+  "test_results": [
+    {
+      "test": "Admin Login",
+      "status": "PASS",
+      "details": "Logged in as Admin",
+      "timestamp": "2026-04-15T17:53:49.427164"
+    },
+    {
+      "test": "Customer Registration",
+      "status": "PASS",
+      "details": "Registered Test Customer",
+      "timestamp": "2026-04-15T17:53:49.842421"
+    },
+    {
+      "test": "Dashboard Stats",
+      "status": "PASS",
+      "details": "Retrieved stats: 9 metrics",
+      "timestamp": "2026-04-15T17:53:51.056046"
+    },
+    {
+      "test": "Create Customer (Admin)",
+      "status": "PASS",
+      "details": "Created customer Admin Created Customer",
+      "timestamp": "2026-04-15T17:53:51.949904"
+    },
+    {
+      "test": "List Customers",
+      "status": "PASS",
+      "details": "Retrieved 2 customers",
+      "timestamp": "2026-04-15T17:53:52.581880"
+    },
+    {
+      "test": "Create Inquiry",
+      "status": "PASS",
+      "details": "Created inquiry: Test Inquiry",
+      "timestamp": "2026-04-15T17:53:52.822018"
+    },
+    {
+      "test": "List Inquiries",
+      "status": "PASS",
+      "details": "Retrieved 1 inquiries",
+      "timestamp": "2026-04-15T17:53:53.084456"
+    },
+    {
+      "test": "Create Follow-up",
+      "status": "PASS",
+      "details": "Created follow-up: call",
+      "timestamp": "2026-04-15T17:53:53.348876"
+    },
+    {
+      "test": "Create Quotation",
+      "status": "PASS",
+      "details": "Created quotation: QT-00001",
+      "timestamp": "2026-04-15T17:53:53.997048"
+    },
+    {
+      "test": "Quotation PDF",
+      "status": "PASS",
+      "details": "PDF generated, size: 2417 bytes",
+      "timestamp": "2026-04-15T17:53:55.604070"
+    },
+    {
+      "test": "Create Inventory",
+      "status": "PASS",
+      "details": "Created item: Test Product",
+      "timestamp": "2026-04-15T17:53:55.821109"
+    },
+    {
+      "test": "List Inventory",
+      "status": "PASS",
+      "details": "Retrieved 1 items",
+      "timestamp": "2026-04-15T17:53:57.620545"
+    },
+    {
+      "test": "Create Ticket",
+      "status": "PASS",
+      "details": "Created ticket: Test Support Ticket",
+      "timestamp": "2026-04-15T17:53:59.267825"
+    },
+    {
+      "test": "List Tickets",
+      "status": "PASS",
+      "details": "Retrieved 1 tickets",
+      "timestamp": "2026-04-15T17:53:59.525714"
+    },
+    {
+      "test": "GST Rates",
+      "status": "PASS",
+      "details": "Retrieved 4 GST rates",
+      "timestamp": "2026-04-15T17:54:00.601953"
+    },
+    {
+      "test": "List Users",
+      "status": "PASS",
+      "details": "Retrieved 3 users",
+      "timestamp": "2026-04-15T17:54:00.809663"
+    }
+  ]
+}

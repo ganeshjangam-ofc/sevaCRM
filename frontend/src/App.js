@@ -1,53 +1,69 @@
-import { useEffect } from "react";
 import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Toaster } from "./components/ui/sonner";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Layout from "./components/Layout";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import CustomersPage from "./pages/CustomersPage";
+import InquiriesPage from "./pages/InquiriesPage";
+import FollowUpsPage from "./pages/FollowUpsPage";
+import QuotationsPage from "./pages/QuotationsPage";
+import InventoryPage from "./pages/InventoryPage";
+import TicketsPage from "./pages/TicketsPage";
+import GSTPage from "./pages/GSTPage";
+import UsersPage from "./pages/UsersPage";
+import HelpCenterPage from "./pages/HelpCenterPage";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+function ProtectedRoute({ children, roles }) {
+  const { user, loading } = useAuth();
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F7F9]">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#002FA7]" />
+      </div>
+    );
+  }
+  if (!user) return <Navigate to="/login" />;
+  if (roles && !roles.includes(user.role)) return <Navigate to="/" />;
+  return <Layout>{children}</Layout>;
+}
 
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
-
-  useEffect(() => {
-    helloWorldApi();
-  }, []);
-
+function AppRoutes() {
+  const { user, loading } = useAuth();
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F7F9]">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#002FA7]" />
+      </div>
+    );
+  }
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/login" element={user ? <Navigate to="/" /> : <LoginPage />} />
+      <Route path="/" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+      <Route path="/customers" element={<ProtectedRoute roles={['admin','sales_team']}><CustomersPage /></ProtectedRoute>} />
+      <Route path="/inquiries" element={<ProtectedRoute roles={['admin','sales_team']}><InquiriesPage /></ProtectedRoute>} />
+      <Route path="/followups" element={<ProtectedRoute roles={['admin','sales_team']}><FollowUpsPage /></ProtectedRoute>} />
+      <Route path="/quotations" element={<ProtectedRoute><QuotationsPage /></ProtectedRoute>} />
+      <Route path="/inventory" element={<ProtectedRoute roles={['admin','sales_team']}><InventoryPage /></ProtectedRoute>} />
+      <Route path="/tickets" element={<ProtectedRoute roles={['admin','sales_team']}><TicketsPage /></ProtectedRoute>} />
+      <Route path="/gst" element={<ProtectedRoute roles={['admin']}><GSTPage /></ProtectedRoute>} />
+      <Route path="/users" element={<ProtectedRoute roles={['admin']}><UsersPage /></ProtectedRoute>} />
+      <Route path="/help" element={<ProtectedRoute roles={['customer']}><HelpCenterPage /></ProtectedRoute>} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
-};
+}
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <AuthProvider>
+        <AppRoutes />
+        <Toaster position="top-right" richColors />
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
